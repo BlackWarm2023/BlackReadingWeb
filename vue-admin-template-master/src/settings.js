@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: 'Vue Admin Template',
+  title: 'Black在线阅读平台',
 
   /**
    * @type {boolean} true | false

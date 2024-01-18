@@ -51,112 +51,101 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '首页', icon: '首页' }
     }]
   },
 
   {
-    path: '/example',
+    path: '/sys',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
+    redirect: '/sys/admin',
+    name: 'sysManage',
+    meta: { title: '系统管理', icon: '系统' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        path: 'admin',
+        name: 'Admin',
+        component: () => import('@/views/sys/admin'),
+        meta: { title: '管理员', icon: 'admin' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
-
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
-      }
-    ]
-  },
-
-  {
-    path: '/nested',
-    component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
-    meta: {
-      title: 'Nested',
-      icon: 'nested'
-    },
-    children: [
-      {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+        path: 'user',
+        name: 'User',
+        component: () => import('@/views/sys/user'),
+        meta: {title: '用户管理', icon: 'user'}
       },
       {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'Menu2',
-        meta: { title: 'menu2' }
+        path: 'role',
+        name: 'Role',
+        component: () => import('@/views/sys/role'),
+        meta: {title: '角色管理', icon: '角色组'}
       }
     ]
   },
 
   {
-    path: 'external-link',
+    path: '/book',
     component: Layout,
+    redirect: '/book/book',
+    name: 'bookManage',
+    meta: { title: '书籍管理', icon: '资料库' },
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
-      }
+        path: 'book',
+        name: 'Book',
+        component: () => import('@/views/book/book'),
+        meta: { title: '书籍', icon: '书籍' }
+      },
+      {
+        path: 'tags',
+        name: 'Tags',
+        component: () => import('@/views/book/tags'),
+        meta: {title: '标签', icon: '标签'}
+      },
+    ]
+  },
+
+  {
+    path: '/safety',
+    component: Layout,
+    redirect: '/safety/safety',
+    name: 'safetyManage',
+    meta: { title: '系统安全', icon: '安全中心' },
+    children: [
+      {
+        path: 'safety',
+        name: 'Safety',
+        component: () => import('@/views/safety/safety'),
+        meta: { title: '安全管理', icon: '安全' }
+      },
+      {
+        path: 'log',
+        name: 'Log',
+        component: () => import('@/views/safety/log'),
+        meta: {title: '系统日志', icon: '系统日志'}
+      },
+    ]
+  },
+
+  {
+    path: '/notice',
+    component: Layout,
+    redirect: '/notice/notice',
+    name: 'noticeManage',
+    meta: { title: '系统通知', icon: '消息通知' },
+    children: [
+      {
+        path: 'notice',
+        name: 'Notice',
+        component: () => import('@/views/notice/notice'),
+        meta: { title: '消息通知', icon: '通知' }
+      },
+      {
+        path: 'feedback',
+        name: 'Feedback',
+        component: () => import('@/views/notice/feedback'),
+        meta: {title: '用户反馈', icon: '_意见反馈'}
+      },
     ]
   },
 
