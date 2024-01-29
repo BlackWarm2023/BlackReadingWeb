@@ -32,12 +32,16 @@ router.beforeEach(async(to, from, next) => {
       } else {
         try {
           // get user info
-          await store.dispatch('user/getInfo')
+          // 这里要改成 admin/getInfo, 因为我这里主要是管理员的登录,所以要改
+          await store.dispatch('admin/getInfo')
+          // await store.dispatch('user/getInfo')
 
           next()
         } catch (error) {
           // remove token and go to login page to re-login
-          await store.dispatch('user/resetToken')
+          // 这里要改成 admin/resetToken, 因为我这里主要是管理员的登录,所以要改
+          await store.dispatch('admin/resetToken')
+          // await store.dispatch('user/resetToken')
           Message.error(error || 'Has Error')
           next(`/login?redirect=${to.path}`)
           NProgress.done()

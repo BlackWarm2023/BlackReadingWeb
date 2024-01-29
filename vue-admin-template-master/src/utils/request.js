@@ -19,6 +19,7 @@ service.interceptors.request.use(
       // let each request carry token
       // ['X-Token'] is a custom headers key
       // please modify it according to the actual situation
+      // 这里是在进网页之前装入 token 的地方,如果要改名,直接改 X-Token 为别的就行
       config.headers['X-Token'] = getToken()
     }
     return config

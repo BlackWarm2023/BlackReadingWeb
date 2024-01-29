@@ -53,7 +53,9 @@ export default {
       this.$store.dispatch('app/toggleSideBar')
     },
     async logout() {
-      await this.$store.dispatch('user/logout')
+      // 因为这边我是用的 admin 所有得改成 admin/logout
+      // await this.$store.dispatch('user/logout')
+      await this.$store.dispatch('admin/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     }
   }
