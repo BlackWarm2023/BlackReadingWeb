@@ -44,6 +44,21 @@ export const constantRoutes = [
   },
 
   {
+    // 个人信息主页
+    path: '/person',
+    component: Layout,
+    redirect: '/person',
+    children: [{
+      path: 'index',
+      name: 'Index',
+      component: () => import('@/views/person/index'),
+      meta: { title: '个人中心', icon: 'user' }
+    }],
+    // 隐藏路由
+    hidden: true
+  },
+
+  {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
@@ -52,7 +67,8 @@ export const constantRoutes = [
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
       meta: { title: '首页', icon: '首页' }
-    }]
+    }],
+    // hidden: true
   },
 
   {

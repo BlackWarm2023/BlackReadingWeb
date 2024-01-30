@@ -12,7 +12,7 @@
         </div>
 <!--        个人信息下拉列表 修改-->
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <router-link to="/">
+          <router-link to="/person/index">
             <el-dropdown-item>
               个人中心
             </el-dropdown-item>
